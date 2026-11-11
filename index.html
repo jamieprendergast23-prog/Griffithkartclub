@@ -185,6 +185,14 @@
   .vid .cap small{color:var(--muted)}
   @media (max-width:980px){.circuit{grid-template-columns:1fr}.vids{grid-template-columns:1fr}}
 
+
+  /* When third-party embeds are blocked (previews, file view), show compact cards instead */
+  .noembed iframe{display:none!important}
+  .noembed .fb-frame,.noembed .map,.noembed .sat{min-height:0;aspect-ratio:auto;height:auto;background:var(--ink-2);border:1px solid var(--line)}
+  .noembed .fb-fallback{position:static;padding:34px 24px;color:var(--text);background:transparent}
+  .noembed .fb-fallback p{color:var(--muted)}
+  .noembed .vid .frame{aspect-ratio:auto;height:120px;background:linear-gradient(135deg,var(--green),#111)}
+
   /* Committee */
   .team{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .mem{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px}
@@ -227,6 +235,7 @@
     .ev .act{grid-column:1/-1;justify-content:flex-start}
     .steps{grid-template-columns:1fr}
     .spons{grid-template-columns:1fr 1fr}
+    .brand small{font-size:9px;letter-spacing:.08em;white-space:nowrap}.brand b{font-size:19px}.logo{height:40px}
     .kv{grid-template-columns:1fr;gap:2px 0}.kv dd{margin-bottom:10px}
     section{padding:60px 0}
   }
@@ -617,8 +626,13 @@ if(next){
 renderNext();
 
 
+/* Embeds (Facebook, YouTube, Maps) only load on the real website. In previews they are blocked,
+   so show tidy link cards instead of empty boxes. */
+const EMBEDS_OK = /^https?:$/.test(location.protocol) && !/claude|anthropic|usercontent/i.test(location.hostname);
+if(!EMBEDS_OK) document.documentElement.classList.add("noembed");
 /* Facebook feed: official Page Plugin, sized to its container */
 (function(){
+  if(!EMBEDS_OK) return;
   const f=document.getElementById("fbFeed");
   const w=Math.min(500,Math.max(280,Math.floor(f.parentElement.clientWidth)));
   f.width=w;f.height=700;
