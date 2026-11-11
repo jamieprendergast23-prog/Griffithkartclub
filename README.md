@@ -13,7 +13,7 @@ Website for Griffith Kart Club Inc., Tharbogang Raceway, est. 1975.
 **Everything else:** edit `index.html` and commit.
 
 ## Connecting Supabase
-In `index.html`, fill in `SUPABASE_URL` and `SUPABASE_KEY` with the project URL and the **publishable (anon)** key. Never put the service role key in this file.
+Connected to project `obheiqzdzlxzrykijcro` (Griffith Kart Club org). `index.html` holds the **publishable** key only. Never put the secret key in this file. New tables or changes go in `supabase/migrations/` and deploy automatically on push to `main`.
 
 ## Hosting (GitHub Pages)
 Settings > Pages > Source: Deploy from a branch > `main` / root. To use griffithkartclub.com.au, add it under Custom domain and point the domain's DNS at GitHub Pages.
