@@ -177,13 +177,16 @@
   .sched{list-style:none;display:grid;gap:10px;margin:22px 0 0}
   .sched li{display:grid;grid-template-columns:130px 1fr;gap:14px;background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 16px;align-items:center}
   .sched b{font:800 22px "Barlow Condensed";color:var(--gold);text-transform:uppercase}
+  .feat-side{display:grid;gap:16px;align-content:start}
+  .flyer{display:block;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+  .flyer img{display:block;width:100%;height:auto}
   .try{background:var(--ink);border:2px solid var(--gold);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
   .try h3{font-size:34px}
   .try .price{font:800 44px "Barlow Condensed";color:var(--gold);line-height:1}
   .try ul{list-style:none;display:grid;gap:8px;color:#c5c8ce}
   .try li:before{content:"✓";color:var(--gold);font-weight:700;margin-right:10px}
   .try small{color:var(--muted);font-size:12.5px}
-  @media (max-width:980px){.feat{grid-template-columns:1fr}}
+  @media (max-width:980px){.feat{grid-template-columns:1fr}.feat-side{order:-1}}
   @media (max-width:600px){.sched li{grid-template-columns:1fr;gap:2px}}
 
   /* Circuit & videos */
@@ -335,8 +338,7 @@
           <a class="btn p" href="https://portal.karting.net.au/" target="_blank" rel="noopener">Enter on KA Portal</a>
           <a class="btn g" href="#circuit">Getting here</a>
         </div>
-      </div>
-      <div class="try">
+        <div class="try" style="margin-top:22px">
         <span class="eyebrow">Come &amp; Try karting</span>
         <h3>Never driven a kart?</h3>
         <div class="price">$80</div>
@@ -347,6 +349,10 @@
         </ul>
         <a class="btn p" style="justify-content:center" href="https://docs.google.com/forms/d/e/1FAIpQLScXpQtwzo9FkvIuVeSnm-w4ROmvq1SkCbxjb9WF1mIAFxm5pA/viewform" target="_blank" rel="noopener">Register your interest</a>
         <small>Places are limited. Registering doesn't guarantee a spot. We'll contact you to confirm session times.</small>
+      </div>
+      </div>
+      <div class="feat-side">
+      <a class="flyer" href="assets/events/christmas-2026.jpg" target="_blank" rel="noopener"><img src="assets/events/christmas-2026.jpg" width="912" height="1000" loading="lazy" alt="Griffith Kart Club Christmas Club Championship Meeting flyer. Saturday 28 November, racing starts 2PM, after race Christmas dinner. Entries through the Karting Australia Licensing and Events Portal or App."></a>
       </div>
     </div>
   </section>
